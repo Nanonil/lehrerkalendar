@@ -1,0 +1,1 @@
+[{"model": "kalender.day", "pk": 1, "fields": {"DateOfDay": "2020-11-10", "Weekday": 1}}, {"model": "kalender.schoolclass", "pk": 1, "fields": {"ClassName": "FIA83"}}]
