@@ -8,10 +8,20 @@ def kalender_view(request, *args, **kwargs):
 	headingsList = {}
 	for heading in headings:
 		headingsList.update({heading : heading})
-
 	list.append(headingsList)
+
+	#Just dummy data
 	for hour in hours:
 		list.append({headings[0]: hour, headings[1]: 'ANW', headings[2]: '', headings[3]: '', headings[4]: '', headings[5]: ''})
+
+	#Make sure all empty spaces are replaced with 'neue Stunde'
+	for row in list:
+		for element in row.keys():
+			if row[element] == '':
+				row[element] = 'neue Stunde'
+
+
+	print(list)
 
 	table = kalenderTable(list)
 
