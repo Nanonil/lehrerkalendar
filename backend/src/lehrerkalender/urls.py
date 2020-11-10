@@ -21,5 +21,9 @@ urlpatterns = [
     path('kalender/', kalender_view),
     path('schueler/', schueler_view),
     path('kalender/tag/<str:tag>', tages_view),
-    path('test/<str:tag>', test_view, name='test_view')
+    path('test/<str:tag>', test_view, name='test_view'),
+
+
+    #Admin views
+    path('admin/', admin.site.urls),
 ]

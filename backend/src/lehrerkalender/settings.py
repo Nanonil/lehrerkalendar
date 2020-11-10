@@ -40,10 +40,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django_tables2',
+    'bootstrap_datepicker_plus',
 
     #own apps
     'kalender',
 ]
+
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

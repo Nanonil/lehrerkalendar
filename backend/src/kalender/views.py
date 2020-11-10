@@ -1,8 +1,12 @@
 from django.shortcuts import render
-from kalender.tables import kalenderTable
-from kalender.constants import hours, headings
+from .tables import kalenderTable
+from .constants import hours, headings
+from .forms import DatepickerForm
 # Create your views here.
 def kalender_view(request, *args, **kwargs):
+	form = DatepickerForm(request.POST or None)
+	if form.is_valid():
+		form.save()
 
 	list = []
 	headingsList = {}
@@ -20,13 +24,13 @@ def kalender_view(request, *args, **kwargs):
 			if row[element] == '':
 				row[element] = 'neue Stunde'
 
-
 	print(list)
-
 	table = kalenderTable(list)
-
-
-	return render(request, "html/calendar.html", {'table': table})
+	context = {
+		'table': table,
+		'form': form,
+	}
+	return render(request, "html/calendar.html", context)
 
 
 
