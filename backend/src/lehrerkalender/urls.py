@@ -1,4 +1,4 @@
-"""lehrerkalendar URL Configuration
+"""lehrerkalender URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from kalendar.views import kalendar_view, schueler_view
+from kalender.views import kalender_view, schueler_view, tages_view, test_view
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('kalendar/', kalendar_view),
-    path('schueler/', schueler_view)
+    #path('/', admin.site.urls),
+    path('kalender/', kalender_view),
+    path('schueler/', schueler_view),
+    path('kalender/tag/<str:tag>', tages_view),
+    path('test/<str:tag>', test_view, name='test_view')
 ]

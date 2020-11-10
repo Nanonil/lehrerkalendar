@@ -1,38 +1,36 @@
 from django.shortcuts import render
-
-
+from kalender.tables import kalenderTable
+from kalender.constants import hours, headings
 # Create your views here.
-def kalendar_view(request, *args, **kwargs):
-	hours = ["1.-2. 07:45-09:15",
-			 "3.-4. 09:35-11:05",
-			 "5.-6. 11:25-12:55",
-			 "7.-8. 13:15-14:45",
-			 "9.-10. 15:05-16:35",
-			 "11.-13. 16:55-19:10",
-			 "14.-15. 19:30-21:00"]
-	headings = ["stunden", "montag", "dienstag", "mittwoch", "donnerstag", "freitag"]
+def kalender_view(request, *args, **kwargs):
 
-	rows = []
-	context = {
-		"rows": rows,
-		"headings": headings
-	}
-	counter = 0
+	list = []
+	headingsList = {}
+	for heading in headings:
+		headingsList.update({heading : heading})
+
+	list.append(headingsList)
 	for hour in hours:
-		hourDictionary = {
-			headings[0]: hour,
-			headings[1]: "Fach1",
-			headings[2]: "Fach2",
-			headings[3]: "Fach3",
-			headings[4]: "Fach4",
-			headings[5]: "Fach5"}
-		rows.append(hourDictionary)
-		hourDictionary[headings[0]]
-		counter += 1
+		list.append({headings[0]: hour, headings[1]: 'ANW', headings[2]: '', headings[3]: '', headings[4]: '', headings[5]: ''})
 
-	return render(request, "html/calendar.html", context)
+	table = kalenderTable(list)
 
 
+	return render(request, "html/calendar.html", {'table': table})
+
+
+
+def tages_view(request, *args, **kwargs):
+
+	table = {
+		[
+
+		]
+	}
+
+	return render(request, "html/day.html", {})
+
+#ignore this one
 def schueler_view(request, *args, **kwargs):
 	context = {
 		"students": [
@@ -48,3 +46,5 @@ def schueler_view(request, *args, **kwargs):
 		]
 	}
 	return render(request, "html/students.html", context)
+def test_view(request, *args, **kwargs):
+	return "Test"

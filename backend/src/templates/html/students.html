@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Schüler</h1>
-<table>
+<table border="8" cellspacing="10" cellpadding="20">
     <tr>
         <th>Name</th>
         <th>Montag</th>
@@ -10,6 +10,15 @@
         <th>Donnerstag</th>
         <th>Freitag</th>
     </tr>
-    {% for student in }
+    {% for student in students %}
+    <tr>
+        <td>{{ student.name }}</td>
+        <td>{{ student.rating1 }}</td>
+        <td>{{ student.rating2 }}</td>
+        <td>{{ student.rating3 }}</td>
+        <td>{{ student.rating4 }}</td>
+        <td>{{ student.rating5 }}</td>
+    </tr>
+    {% endfor %}
 </table>
 {% endblock %}
