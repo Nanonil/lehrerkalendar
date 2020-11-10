@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from kalendar.views import kalendar_view, schueler_view
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('kalendar/', kalendar_view),
+    path('schueler/', schueler_view)
 ]
