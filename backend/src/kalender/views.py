@@ -20,6 +20,9 @@ def kalender_view(request, *args, **kwargs):
 
 
 
+
+
+
 def tages_view(request, *args, **kwargs):
 
 	table = {

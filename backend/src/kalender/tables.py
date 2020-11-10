@@ -17,18 +17,3 @@ class kalenderTable(tables.Table):
         show_header = False
         #Diasable header is it that simple?
 
-class dayTabele(tables.Table):
-    TEMPLATE = """
-        <input id="count" maxlength="100" name="count" type="text"/>
-        """
-
-    stunden = tables.Column()
-    fach
-    notitzen = tables.TemplateColumn(TEMPLATE)
-    inhalt
-
-    data = db.getModel("Select from * ")
-    data = [
-        {"stunden": "1.-2.", "fach": "ANW", "notitzen": "ydfgdf", "inhalt": "ydfgdf"},
-        {"name": "Stevie"},
-    ]
