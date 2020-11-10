@@ -1,4 +1,4 @@
-#!/Users/nilsprinz/Arbeit/Ausbildung/3./osp/git/lehrerkalendar/backend/bin/python
+#!/Users/nilsprinz/Arbeit/Ausbildung/3./osp/git/lehrerkalender/backend/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
