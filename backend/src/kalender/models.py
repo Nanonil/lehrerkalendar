@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 #Example
 #class <table_name>(models.Model):
-  <coloumn_name> = models.<field_type>(<restrictions>)
+  #<coloumn_name> = models.<field_type>(<restrictions>)
 
 class Teacher(models.Model):
     TeacherName = models.CharField(max_length=80)
@@ -22,7 +22,7 @@ class Students(models.Model):
 class Lesson(models.Model):
 	DayID = models.ForeignKey(Day, on_delete=models.CASCADE)
 	ClassID = models.ForeignKey(Schoolclass, on_delete=models.CASCADE)
-	Subject = models.CharField(50)
+	Subject = models.CharField(max_length=50)
 	Period = models.IntegerField()
 	Content = models.TextField()
 	Note = models.TextField()
