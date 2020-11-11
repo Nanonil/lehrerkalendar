@@ -15,15 +15,30 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from kalender.views import kalender_view, schueler_view, tages_view, test_view
+from kalender.views import kalender_view, login_view, home_view, login_redirect_view, dummy_view
 urlpatterns = [
-    #path('/', admin.site.urls),
-    path('kalender/', kalender_view),
-    path('schueler/', schueler_view),
-    path('kalender/tag/<str:tag>', tages_view),
-    path('test/<str:tag>', test_view, name='test_view'),
 
+    #Login and login redirect path
+    path('login', login_view, name='login'),
+    path('', login_redirect_view, name='login_redirect'),
+
+    #The Path tot he entry of the both apps
+    path('kalender', kalender_view),
+    #path('schueler', schueler_view), not activated because not implemented
+
+    #Path to the home of the Website, from here the User can decide which app to use
+    path('home', home_view, name='home_view'),
 
     #Admin views
     path('admin/', admin.site.urls),
+
+
+
+
+
+
+
+    #This is just a dummy view assigned wherever a view is not ready/implemented yet
+    path('dummy_view', dummy_view, name='dummy_view'),
+    path('dummy_view/<str>', dummy_view, name='dummy_view')
 ]

@@ -5,11 +5,11 @@ class kalenderTable(tables.Table):
 
     stunden = tables.Column()
     #montag = tables.TemplateColumn('<a href="{{value}}">{{value}}</a>')
-    montag = tables.Column(linkify=("test_view", [tables.A("montag")]))
-    dienstag = tables.Column(linkify=("test_view", [tables.A("dienstag")]))
-    mittwoch = tables.Column(linkify=("test_view", [tables.A("mittwoch")]))
-    donnerstag = tables.Column(linkify=("test_view", [tables.A("donnerstag")]))
-    freitag = tables.Column(linkify=("test_view", [tables.A("freitag")]))
+    montag = tables.Column(linkify=("dummy_view", [tables.A("montag")]))
+    dienstag = tables.Column(linkify=("dummy_view", [tables.A("dienstag")]))
+    mittwoch = tables.Column(linkify=("dummy_view", [tables.A("mittwoch")]))
+    donnerstag = tables.Column(linkify=("dummy_view", [tables.A("donnerstag")]))
+    freitag = tables.Column(linkify=("dummy_view", [tables.A("freitag")]))
 
     class Meta:
         orderable = False
