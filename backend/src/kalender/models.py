@@ -13,7 +13,7 @@ class Day(models.Model):
 	Weekday = models.IntegerField() # int from 1 to 5; 1 for Monday, 2 Tuesday, ..., 5 Friday
 
 class Schoolclass(models.Model):
-	ClassName = models.CharField(max=5) # Class Names are always 5 characters long (eg "FIA85")
+	ClassName = models.CharField(max_length=5) # Class Names are always 5 characters long (eg "FIA85")
 
 class Students(models.Model):
 	StudentName = models.CharField(max_length=80) # Names will be limited to 80 characters
@@ -44,11 +44,11 @@ class Schedule(models.Model):
 	TeacherID = models.ForeignKey(Teacher, on_delete=models.CASCADE)
 	CalendarWeek = models.IntegerField()
 	Year = models.IntegerField()
-	Monday = models.ForeignKey(Day, on_delete=models.CASCADE)
-	Tuesday = models.ForeignKey(Day, on_delete=models.CASCADE)
-	Wednesday = models.ForeignKey(Day, on_delete=models.CASCADE)
-	Thursday = models.ForeignKey(Day, on_delete=models.CASCADE)
-	Friday = models.ForeignKey(Day, on_delete=models.CASCADE)
+	Monday = models.ForeignKey(Day, on_delete=models.CASCADE, related_name='monday')
+	Tuesday = models.ForeignKey(Day, on_delete=models.CASCADE, related_name='tuesday')
+	Wednesday = models.ForeignKey(Day, on_delete=models.CASCADE, related_name='wednesday')
+	Thursday = models.ForeignKey(Day, on_delete=models.CASCADE, related_name='thursday')
+	Friday = models.ForeignKey(Day, on_delete=models.CASCADE, related_name='friday')
 	class Meta:
 		constraints = [
 			models.UniqueConstraint(fields=['TeacherID', 'CalendarWeek', 'Year'], name='UniqueSchedule')

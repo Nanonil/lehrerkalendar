@@ -19,23 +19,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cbce885-a035-46a3-891c-054f02439597" name="Default Changelist" comment="trying to add a datepicker for the calendar view">
-      <change afterPath="$PROJECT_DIR$/src/templates/html/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/login.html" afterDir="false" />
+    <list default="true" id="9cbce885-a035-46a3-891c-054f02439597" name="Default Changelist" comment="Added log in and security">
+      <change beforePath="$PROJECT_DIR$/.idea/backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/backend.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kalender/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/kalender/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kalender/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/kalender/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kalender/tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/kalender/tables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kalender/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/kalender/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kalender/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/kalender/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/kalender/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/kalender/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lehrerkalender/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/lehrerkalender/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lehrerkalender/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/lehrerkalender/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/templates/html/calendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/html/calendar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -71,11 +72,48 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/templates" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Python.DjangoServer" factoryName="Django server" nameIsGenerated="true">
+      <module name="backend" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="lehrerkalender.settings" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/bin/python" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -85,7 +123,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605010682179</updated>
-      <workItem from="1605010683227" duration="15640000" />
+      <workItem from="1605010683227" duration="30870000" />
     </task>
     <task id="LOCAL-00001" summary="Removed examples for Robert and added Tables">
       <created>1605010885707</created>
@@ -115,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605020961097</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added log in and security">
+      <created>1605084702737</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605084702737</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,16 +182,88 @@
     <MESSAGE value="Created placeholder for empty fields, all empty field contain the String 'neue Stunde' now" />
     <MESSAGE value="fixed typo" />
     <MESSAGE value="trying to add a datepicker for the calendar view" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to add a datepicker for the calendar view" />
+    <MESSAGE value="Added log in and security" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added log in and security" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="534" y="340" key="MultipleFileMergeDialog" timestamp="1605014945644">
+    <state x="360" y="233" width="1071" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605100823798">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="534" y="340" key="MultipleFileMergeDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1605014945644" />
-    <state x="496" y="311" key="Vcs.Push.Dialog.v2" timestamp="1605020983637">
+    <state x="360" y="233" width="1071" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1605100823798" />
+    <state x="518" y="541" key="#xdebugger.evaluate" timestamp="1605105313970">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="496" y="311" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1605020983637" />
+    <state x="518" y="541" key="#xdebugger.evaluate/0.23.1792.1097@0.23.1792.1097" timestamp="1605105313970" />
+    <state width="875" height="374" key="GridCell.Tab.0.bottom" timestamp="1605105427677">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="875" height="374" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1605105427677" />
+    <state width="875" height="374" key="GridCell.Tab.0.center" timestamp="1605105427676">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="875" height="374" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1605105427676" />
+    <state width="875" height="374" key="GridCell.Tab.0.left" timestamp="1605105427675">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="875" height="374" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1605105427675" />
+    <state width="875" height="374" key="GridCell.Tab.0.right" timestamp="1605105427676">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="875" height="374" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1605105427676" />
+    <state width="875" height="374" key="GridCell.Tab.1.bottom" timestamp="1605105428562">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="875" height="374" key="GridCell.Tab.1.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1605105428562" />
+    <state width="875" height="374" key="GridCell.Tab.1.center" timestamp="1605105428561">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="875" height="374" key="GridCell.Tab.1.center/0.23.1792.1097@0.23.1792.1097" timestamp="1605105428561" />
+    <state width="875" height="374" key="GridCell.Tab.1.left" timestamp="1605105428561">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="875" height="374" key="GridCell.Tab.1.left/0.23.1792.1097@0.23.1792.1097" timestamp="1605105428561" />
+    <state width="875" height="374" key="GridCell.Tab.1.right" timestamp="1605105428562">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="875" height="374" key="GridCell.Tab.1.right/0.23.1792.1097@0.23.1792.1097" timestamp="1605105428562" />
+    <state x="180" y="122" key="MergeDialog" timestamp="1605084760561">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="180" y="122" key="MergeDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1605084760561" />
+    <state x="534" y="340" key="MultipleFileMergeDialog" timestamp="1605084765009">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="534" y="340" key="MultipleFileMergeDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1605084765009" />
+    <state x="397" y="229" key="SettingsEditor" timestamp="1605100811848">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="397" y="229" key="SettingsEditor/0.23.1792.1097@0.23.1792.1097" timestamp="1605100811848" />
+    <state x="496" y="311" key="Vcs.Push.Dialog.v2" timestamp="1605084720288">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="496" y="311" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1605084720288" />
+    <state x="694" y="492" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605084728535">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="694" y="492" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1792.1097@0.23.1792.1097" timestamp="1605084728535" />
+    <state x="581" y="291" key="git4idea.branch.GitSmartOperationDialog" timestamp="1605097280829">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="581" y="291" key="git4idea.branch.GitSmartOperationDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1605097280829" />
+    <state x="561" y="268" width="670" height="676" key="search.everywhere.popup" timestamp="1605103700518">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="561" y="268" width="670" height="676" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1605103700518" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
