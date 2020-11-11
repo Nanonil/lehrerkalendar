@@ -19,11 +19,14 @@ class Students(models.Model):
 	StudentName = models.CharField(max_length=80) # Names will be limited to 80 characters
 	ClassID = models.ForeignKey(Schoolclass, on_delete=models.CASCADE)
 
+class Period(models.Model):
+    timeSpan = models.CharField(max_length=13) # eg "07:45 - 08:30"
+
 class Lesson(models.Model):
 	DayID = models.ForeignKey(Day, on_delete=models.CASCADE)
 	ClassID = models.ForeignKey(Schoolclass, on_delete=models.CASCADE)
 	Subject = models.CharField(max_length=50)
-	Period = models.IntegerField() # int from 1 to 15; 1 '07:45-8:30'
+	PeriodID = models.ForeignKey(Period, on_delete=models.CASCADE) # int from 1 to 15; 1 '07:45-8:30'
 	Content = models.TextField()
 	Note = models.TextField()
 
@@ -34,7 +37,7 @@ class StudentGrading(models.Model):
 	Grading = models.IntegerField() # int from 1 to 5
 	class Meta:
 		constraints = [
-			models.UniqueConstraint(fields=['StudentID', 'TeacherID', 'LessonID'], name='StudentGradingUnique')
+			models.UniqueConstraint(fields=['StudentID', 'TeacherID', 'DayID'], name='StudentGradingUnique')
 		]
 
 class Schedule(models.Model):
