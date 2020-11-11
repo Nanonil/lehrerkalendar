@@ -1,1 +1,9 @@
-<h1>Here will be the menu</h1>
+<div class="topnav">
+    {% if "schueler" in request.path %}
+    <a class="active" href="#student">Schülerbewertung</a>
+    <a href="#calender">Kalender</a>
+    {% elif "kalender" in request.path %}
+    <a href="#student">Schülerbewertung</a>
+    <a class="active" href="#Kalender">Kalender</a>
+    {% endif %}
+  </div>

@@ -34,6 +34,7 @@ def kalender_view(request, *args, **kwargs):
 
     # Create the Datepicker since we always need it
     form = DatepickerForm(request.POST or None)
+
     if form.is_valid():
         form.save()
     context.update({'form': form})
