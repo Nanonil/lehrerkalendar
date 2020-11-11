@@ -30,7 +30,7 @@ class Lesson(models.Model):
 class StudentGrading(models.Model):
 	StudentID = models.ForeignKey(Students, on_delete=models.CASCADE)
 	TeacherID = models.ForeignKey(Teacher, on_delete=models.CASCADE)
-	LessonID = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+	DayID = models.ForeignKey(Day, on_delete=models.CASCADE)
 	Grading = models.IntegerField() # int from 1 to 5
 	class Meta:
 		constraints = [
