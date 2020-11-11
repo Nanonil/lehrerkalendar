@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 style="color: #000033;">Stundenübersicht</h1>
+
+<h2 style="color: #339999;" for="cars">Fach: {{fach}}</h2>
+<h2 style="color: #339999;" for="cars">Klasse: {{klasse}}</h2>
+</br>
+</br>
+
+<label style="font-size: 25px; color: #336699;">Unterrichtsinhalt:</label> </br>
+<textarea style="font-size: 18px; font-family: Cambria" name="unterrichtsinhalt" rows="10" cols="70">{{inhalt}}</textarea>
+</br></br>
+
+
+<label style="font-size: 25px; color: #336699;">Notiz:</label> </br>
+<textarea style="font-size: 18px; font-family: Cambria" name="unterrichtsinhalt" rows="10" cols="70">{{notiz}}</textarea>
+
+</br>
+</br>
+<!-- <button style="height: 50px; width: 100px; font-size: 18px; background-color: #006699; color: white; box-shadow: 2px 2px 5px #010435;" onclick="myFunction()">Speichern</button> -->
+<form action="/saveInhalt" method="GET">
+    <input  style="height: 50px; width: 100px; font-size: 18px; background-color: #006699; color: white; box-shadow: 2px 2px 5px #010435;" type="submit" value="Speichern">
+</form>
+{% endblock %}

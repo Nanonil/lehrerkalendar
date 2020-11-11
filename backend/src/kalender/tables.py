@@ -17,3 +17,16 @@ class kalenderTable(tables.Table):
         show_header = False
         #Diasable header is it that simple?
 
+class dayTabele(tables.Table):
+    TEMPLATE = """
+        <input id="count" maxlength="100" name="count" value="" onfocusout="myFunction()" type="text"/>
+        """
+
+    day = "Montag"
+    Stunde = tables.Column()
+    Fach = tables.Column()
+    Stundeninhalt = tables.TemplateColumn(TEMPLATE)
+    Notiz = tables.TemplateColumn(TEMPLATE)
+
+    class Meta:
+        orderable = False

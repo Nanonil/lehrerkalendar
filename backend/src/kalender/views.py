@@ -3,8 +3,8 @@ from django.contrib.auth.models import User, auth
 from datetime import date as dateTime
 import datetime
 
-from .tables import kalenderTable
-from .constants import hours, headings
+from .tables import kalenderTable, dayTabele
+from .constants import hours, headings, dayHeadings
 from .forms import DatepickerForm
 from .models import *
 
@@ -165,3 +165,54 @@ def assure_that_user_is_in_custom_db(user):
             if teacher == user.get_username():
                 return
             teacher = Teacher(TeacherName=user.get_username())
+
+
+def stunden_view(request, *args, **kwargs):
+    context = {
+        "fach": "ANW",
+        "klasse": "FIA85",
+        "inhalt": "moin",
+        "notiz": "jo"
+    }
+
+    return render(request, "html/hour.html", context)
+
+
+def test_view(request):
+    return redirect('/kalender')
+
+
+def save_students_view(request):
+    return redirect('/kalender')
+
+
+def schueler_view(request, *args, **kwargs):
+    context = {
+        "students": [
+            {
+                "name": "Nils",
+                "rating1": "1",
+                "rating2": "2",
+                "rating3": "3",
+                "rating4": "4",
+                "rating5": "5",
+
+            }
+        ]
+    }
+    return render(request, "html/students.html", context)
+
+
+def tages_view(request, *args, **kwargs):
+    list = []
+    data = [
+        {dayHeadings[0]: "1.-2.", dayHeadings[1]: "ANW", dayHeadings[2]: "QS", dayHeadings[3]: "12345"},
+        {dayHeadings[0]: "3.-4.", dayHeadings[1]: "ITK", dayHeadings[2]: "Netzwerke", dayHeadings[3]: "12345"},
+        {dayHeadings[0]: "5.-6.", dayHeadings[1]: "Deutsch", dayHeadings[2]: "PoB", dayHeadings[3]: "12345"}
+    ]
+
+    for row in data:
+        list.append(row)
+    table = dayTabele(list)
+    return render(request, "html/day.html", {'table': table})
+

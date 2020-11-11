@@ -5,4 +5,7 @@ hours = ["1.-2. 07:45-09:15",
          "9.-10. 15:05-16:35",
          "11.-13. 16:55-19:10",
          "14.-15. 19:30-21:00"]
+
 headings = ["stunden", "montag", "dienstag", "mittwoch", "donnerstag", "freitag"]
+
+dayHeadings = ["Stunde", "Fach", "Stundeninhalt", "Notiz"]
