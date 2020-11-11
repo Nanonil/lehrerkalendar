@@ -19,17 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cbce885-a035-46a3-891c-054f02439597" name="Default Changelist" comment="Added log in and security">
-      <change beforePath="$PROJECT_DIR$/.idea/backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/backend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kalender/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/kalender/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kalender/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/kalender/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kalender/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/kalender/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kalender/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/kalender/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kalender/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/kalender/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/html/calendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/html/calendar.html" afterDir="false" />
-    </list>
+    <list default="true" id="9cbce885-a035-46a3-891c-054f02439597" name="Default Changelist" comment="Datas for Calendar are now retrieved from the DB" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -123,7 +113,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605010682179</updated>
-      <workItem from="1605010683227" duration="30870000" />
+      <workItem from="1605010683227" duration="31251000" />
     </task>
     <task id="LOCAL-00001" summary="Removed examples for Robert and added Tables">
       <created>1605010885707</created>
@@ -160,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605084702737</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Datas for Calendar are now retrieved from the DB">
+      <created>1605107284587</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1605107284587</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,7 +180,8 @@
     <MESSAGE value="fixed typo" />
     <MESSAGE value="trying to add a datepicker for the calendar view" />
     <MESSAGE value="Added log in and security" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added log in and security" />
+    <MESSAGE value="Datas for Calendar are now retrieved from the DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Datas for Calendar are now retrieved from the DB" />
   </component>
   <component name="WindowStateProjectService">
     <state x="360" y="233" width="1071" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605100823798">
@@ -230,26 +228,26 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="180" y="122" key="MergeDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1605084760561" />
-    <state x="534" y="340" key="MultipleFileMergeDialog" timestamp="1605084765009">
+    <state x="534" y="340" key="MultipleFileMergeDialog" timestamp="1605107328152">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="534" y="340" key="MultipleFileMergeDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1605084765009" />
+    <state x="534" y="340" key="MultipleFileMergeDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1605107328152" />
     <state x="397" y="229" key="SettingsEditor" timestamp="1605100811848">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="397" y="229" key="SettingsEditor/0.23.1792.1097@0.23.1792.1097" timestamp="1605100811848" />
-    <state x="496" y="311" key="Vcs.Push.Dialog.v2" timestamp="1605084720288">
+    <state x="496" y="311" key="Vcs.Push.Dialog.v2" timestamp="1605107535196">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="496" y="311" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1605084720288" />
-    <state x="694" y="492" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605084728535">
+    <state x="496" y="311" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1605107535196" />
+    <state x="694" y="492" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605107477141">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="694" y="492" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1792.1097@0.23.1792.1097" timestamp="1605084728535" />
-    <state x="581" y="291" key="git4idea.branch.GitSmartOperationDialog" timestamp="1605097280829">
+    <state x="694" y="492" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1792.1097@0.23.1792.1097" timestamp="1605107477141" />
+    <state x="581" y="291" key="git4idea.branch.GitSmartOperationDialog" timestamp="1605107371227">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="581" y="291" key="git4idea.branch.GitSmartOperationDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1605097280829" />
+    <state x="581" y="291" key="git4idea.branch.GitSmartOperationDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1605107371227" />
     <state x="561" y="268" width="670" height="676" key="search.everywhere.popup" timestamp="1605103700518">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
