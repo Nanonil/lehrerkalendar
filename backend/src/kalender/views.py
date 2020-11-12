@@ -220,19 +220,14 @@ def tages_view(request, *args, **kwargs):
 def search_view(request, *args, **kwargs):
     form = ClassForm()
 
-    data = [
-    ]
-
-    table = searchTable(data)
     context = {
         "form": form,
-        "table" : table
+        "table" : searchTable([])
     }
 
     if request.GET: 
         classId = request.GET['Klasse']
-        lessons = Lesson.objects.filter(ClassID=classId)
-        #.order_by('DayID')
+        lessons = Lesson.objects.filter(ClassID=classId).order_by('-DayID__DateOfDay')
         data = []
         for lesson in lessons:
             data.append({searchHeadings[0]: Day.objects.get(id=lesson.DayID.id).DateOfDay, searchHeadings[1]: lesson.Subject, searchHeadings[2]: lesson.Content, searchHeadings[3]: lesson.Note})

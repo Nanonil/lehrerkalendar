@@ -26,5 +26,5 @@ class ClassForm(forms.Form):
     for sc in classes:
         CHOICES.append((i, sc.ClassName))
         i += 1
-    
-    Klasse = forms.ChoiceField(choices=CHOICES)
+        
+    Klasse = forms.ChoiceField(choices=CHOICES) #initial=classId
