@@ -1,17 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="active">
-    <a.active href="#student"></a>
-  </div>
-<h1 style="color: #590672;"> Schüler</h1>
-<table  cellspacing="10" cellpadding="20">
+
+<h1 style="color: #000033;"> Schüler</h1>
+<table border="8" cellspacing="10" cellpadding="20">
     <tr>
-        <th style="font-size: 18px; color: #900c3f;">Name</th>
-        <th style="font-size: 18px; color: #c70039;">Montag</th>
-        <th style="font-size: 18px; color: #c70039;">Dienstag</th>
-        <th style="font-size: 18px; color: #c70039;">Mittwoch</th>
-        <th style="font-size: 18px; color: #c70039;">Donnerstag</th>
-        <th style="font-size: 18px; color: #c70039;">Freitag</th>
+        <th style="font-size: 18px; color: #00cc99;">Name</th>
+        <th style="font-size: 18px; color: #3333CC;">Montag</th>
+        <th style="font-size: 18px; color: #3333CC;">Dienstag</th>
+        <th style="font-size: 18px; color: #3333CC;">Mittwoch</th>
+        <th style="font-size: 18px; color: #3333CC;">Donnerstag</th>
+        <th style="font-size: 18px; color: #3333CC;">Freitag</th>
     </tr>
     {% for student in students %}
     <tr>
@@ -27,6 +25,6 @@
 </br>
 </br>
 <form action="/saveStudents" method="GET">
-    <input  style="height: 50px; width: 100px; font-size: 18px; font-weight: bold; background-color: #ccccff; color: #333333; box-shadow: 2px 2px 5px #660033;" type="submit" value="Speichern">
+    <input  style="height: 50px; width: 100px; font-size: 18px; background-color: #006699; color: white; box-shadow: 2px 2px 5px #010435;" type="submit" value="Speichern">
 </form>
 {% endblock %}

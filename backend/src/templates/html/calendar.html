@@ -1,17 +1,108 @@
 {% extends 'base.html' %}
+{% load replace %}
 {% block content %}
-<h1>Kalender für {{ request.user }}</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit", value="Bestätigen">
-</form>
-<br>
-<br>
-<br>
-<br>
-{% if table %}
-    {% load render_table from django_tables2 %}
-    {% render_table table %}
-{% endif %}
+    <h1>Kalender für {{ request.user }}</h1>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" , value="Bestätigen">
+        </form>
+        <form action="/test">
+            <select name="classes" id="classes">
+                {% for class in classes %}
+                    <option value={{ class }}>{{ class }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="search">
+        </form>
+        <form action="https://example.com">
+            <label>
+                Enter your birthday:
+                <input type="date" name="bday">
+            </label>
+            <button>Submit</button>
+        </form>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th>{{ tableHead.stunden }}</th>
+            <th>{{ tableHead.montag }}</th>
+            <th>{{ tableHead.dienstag }}</th>
+            <th>{{ tableHead.mittwoch }}</th>
+            <th>{{ tableHead.donnerstag }}</th>
+            <th>{{ tableHead.freitag }}</th>
+        </tr>
+        <tr>
+            <td></td>
+            {% for date in tableDates %}
+                <td>{{ date }}</td>
+            {% endfor %}
+        </tr>
+        {% for row in table %}
+            <tr>
+                <td>{{ row.stunden }}</td>
+                <form method="POST" action="kalender/newLesson">
+                    {% csrf_token %}
+                    <input type="hidden" name="hours" value="{{ row.stundenstripped }}">
+                    <input type="hidden" name="date" value="{{ tableDates.0 }}">
+                    {% if row.montag != new %}
+                        <input type="hidden" name="hasSubject" value="{{ row.montag }}">
+                    {% endif %}
+                    <td>
+                        <button>{{ row.montag }}</button>
+                    </td>
+                </form>
+                <form method="POST" action="kalender/newLesson">
+                    {% csrf_token %}
+                    <input type="hidden" name="hours" value="{{ row.stundenstripped }}">
+                    <input type="hidden" name="date" value="{{ tableDates.1 }}">
+                    {% if row.dienstag != new %}
+                        <input type="hidden" name="hasSubject" value="{{ row.dienstag }}">
+                    {% endif %}
+                    <td>
+                        <button>{{ row.dienstag }}</button>
+                    </td>
+                </form>
+                <form method="POST" action="kalender/newLesson">
+                    {% csrf_token %}
+                    <input type="hidden" name="hours" value="{{ row.stundenstripped }}">
+                    <input type="hidden" name="date" value="{{ tableDates.2 }}">
+                    {% if row.mittwoch != new %}
+                        <input type="hidden" name="hasSubject" value="{{ row.mittwoch }}">
+                    {% endif %}
+                    <td>
+                        <button>{{ row.mittwoch }}</button>
+                    </td>
+                </form>
+                <form method="POST" action="kalender/newLesson">
+                    {% csrf_token %}
+                    <input type="hidden" name="hours" value="{{ row.stundenstripped }}">
+                    <input type="hidden" name="date" value="{{ tableDates.3 }}">
+                    {% if row.donnerstag != new %}
+                        <input type="hidden" name="hasSubject" value="{{ row.donnerstag }}">
+                    {% endif %}
+                    <td>
+                        <button>{{ row.donnerstag }}</button>
+                    </td>
+                </form>
+                <form method="POST" action="kalender/newLesson">
+                    {% csrf_token %}
+                    <input type="hidden" name="hours" value="{{ row.stundenstripped }}">
+                    <input type="hidden" name="date" value="{{ tableDates.4 }}">
+                    {% if row.freitag != new %}
+                        <input type="hidden" name="hasSubject" value="{{ row.freitag }}">
+                    {% endif %}
+                    <td>
+                        <button>{{ row.freitag }}</button>
+                    </td>
+                </form>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

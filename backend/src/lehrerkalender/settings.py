@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django_tables2',
     'bootstrap_datepicker_plus',
     'bootstrap4',
+    'django_replace',
 
     #own apps
     'kalender',
