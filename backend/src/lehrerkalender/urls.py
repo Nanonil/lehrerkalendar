@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from kalender.views import save_students_view, stunden_view, test_view, kalender_view, login_view, home_view, login_redirect_view, dummy_view, schueler_view, tages_view, search_view
+from kalender.views import save_students_view, stunden_view, test_view, kalender_view, login_view, home_view, login_redirect_view, dummy_view, schueler_view, tages_view, search_view, neue_stunde_view
 urlpatterns = [
 
     #Login and login redirect path
@@ -29,6 +29,9 @@ urlpatterns = [
     #Path to the home of the Website, from here the User can decide which app to use
     path('home', home_view, name='home_view'),
 
+    #Path for all views reachable from the Kalendar
+    path('kalender/new/tag/<str:hours>/date/<str:date>', neue_stunde_view, name='neue_stunde' ),
+    path('kalender/newLesson', neue_stunde_view, name='neue_stunde'),
     #Admin views
     path('admin/', admin.site.urls),
 
@@ -36,7 +39,7 @@ urlpatterns = [
 
     #From Branch Tara
     path('schueler/', schueler_view),
-    path('kalender/tag/<str:tag>', tages_view, name="tages_view"),
+    path('kalender/tag/<str:stunden>', tages_view, name='tag'),
     path('test/<str:tag>', test_view, name='test_view'),
     path('kalender/stunde/<str:hour>', stunden_view),
     path('saveInhalt/', test_view),
@@ -48,5 +51,7 @@ urlpatterns = [
 
     #This is just a dummy view assigned wherever a view is not ready/implemented yet
     path('dummy_view', dummy_view, name='dummy_view'),
-    path('dummy_view/<str>', dummy_view, name='dummy_view')
+    path('dummy_view/<str:stunden>/<str:Datum>', dummy_view, name='dummy_view'),
+    path('dummy_view/<str:stunden>', dummy_view, name='dummy_view'),
+    path('function/<str:function>/tag/<str:tag>/stunden/<str:stunden>', dummy_view, name='tag')
 ]
