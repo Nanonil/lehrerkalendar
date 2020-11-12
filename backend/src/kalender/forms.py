@@ -10,3 +10,11 @@ class DatepickerForm(forms.Form):
     date = forms.DateField(
         widget=DatePickerInput(format='%d/%m/%Y', attrs={'value': defaultDate})
     )
+
+class ExpenseForm(forms.Form):
+    CHOICES = (
+            (1, 'FIA83'),
+            (2, 'FIA84'),
+            (3, 'FIA85')
+    )
+    Klasse = forms.ChoiceField(choices=CHOICES)

@@ -3,9 +3,9 @@ from django.contrib.auth.models import User, auth
 from datetime import date as dateTime
 import datetime
 
-from .tables import kalenderTable, dayTabele
-from .constants import hours, headings, dayHeadings
-from .forms import DatepickerForm
+from .tables import kalenderTable, dayTabele, searchTable
+from .constants import hours, headings, dayHeadings, searchHeadings
+from .forms import DatepickerForm, ExpenseForm
 from .models import *
 
 
@@ -214,6 +214,35 @@ def tages_view(request, *args, **kwargs):
 
     for row in data:
         list.append(row)
-    table = dayTabele(list)
+    table = dayTabele(data)
     return render(request, "html/day.html", {'table': table})
+
+def search_view(request, *args, **kwargs):
+    form = ExpenseForm()
+
+    data = [
+    ]
+
+
+    table = searchTable(data)
+    context = {
+        "form": form,
+        "table" : table
+    }
+
+    if request.GET: 
+        classId = request.GET['Klasse']
+        if classId == '1':
+            data = [
+                {searchHeadings[0]: "20.01.2020", searchHeadings[1]: "ANW", searchHeadings[2]: "QS", searchHeadings[3]: "12345"}
+            ]
+        else:
+            data = [
+                {searchHeadings[0]: "27.01.2020", searchHeadings[1]: "ITK", searchHeadings[2]: "QS", searchHeadings[3]: "12345"}
+            ]
+        table = searchTable(data)
+        context['table'] = table
+
+    return render(request, 'html/search.html', context)
+
 

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from kalender.views import save_students_view, stunden_view, test_view, kalender_view, login_view, home_view, login_redirect_view, dummy_view, schueler_view, tages_view
+from kalender.views import save_students_view, stunden_view, test_view, kalender_view, login_view, home_view, login_redirect_view, dummy_view, schueler_view, tages_view, search_view
 urlpatterns = [
 
     #Login and login redirect path
@@ -41,6 +41,10 @@ urlpatterns = [
     path('kalender/tag/<str:tag>/stunde/<str:hour>', stunden_view),
     path('saveInhalt/', test_view),
     path('saveStudents/', save_students_view),
+
+    #Search View to search by class
+    path('kalender/search/', search_view),
+    path('kalender/search/?Klasse=1', dummy_view),
 
     #This is just a dummy view assigned wherever a view is not ready/implemented yet
     path('dummy_view', dummy_view, name='dummy_view'),
