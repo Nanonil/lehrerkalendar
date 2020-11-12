@@ -1,1 +1,66 @@
-[{"model": "kalender.day", "pk": 1, "fields": {"DateOfDay": "2020-11-10", "Weekday": 1}}, {"model": "kalender.schoolclass", "pk": 1, "fields": {"ClassName": "FIA83"}}]
+[
+    {
+        "model": "kalender.day",
+        "pk": 1,
+        "fields": {
+            "DateOfDay": "2020-11-10",
+            "Weekday": 1
+        }
+    },
+    {
+        "model": "kalender.schoolclass",
+        "pk": 1,
+        "fields": {
+            "ClassName": "FIA83"
+        }
+    },
+    {
+        "model": "kalender.period",
+        "pk": 1,
+        "fields": {
+            "timeSpan": "07:45 - 09:15"
+        }
+    },
+    {
+        "model": "kalender.period",
+        "pk": 2,
+        "fields": {
+            "timeSpan": "9:35 - 11:05"
+        }
+    },
+    {
+        "model": "kalender.period",
+        "pk": 3,
+        "fields": {
+            "timeSpan": "11:25 - 12:55"
+        }
+    },
+    {
+        "model": "kalender.period",
+        "pk": 4,
+        "fields": {
+            "timeSpan": "13:15 - 14:45"
+        }
+    },
+    {
+        "model": "kalender.period",
+        "pk": 5,
+        "fields": {
+            "timeSpan": "15:05 - 16:35"
+        }
+    },
+    {
+        "model": "kalender.period",
+        "pk": 6,
+        "fields": {
+            "timeSpan": "16:55 - 19:10"
+        }
+    },
+    {
+        "model": "kalender.period",
+        "pk": 7,
+        "fields": {
+            "timeSpan": "19:30 - 21:00"
+        }
+    }
+]
