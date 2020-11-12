@@ -49,40 +49,55 @@
                 <td>{{ row.stunden }}</td>
                 <form method="POST" action="kalender/newLesson">
                     {% csrf_token %}
-                    <input type="hidden" name="hours" value="{{ row.stundenstripped}}">
+                    <input type="hidden" name="hours" value="{{ row.stundenstripped }}">
                     <input type="hidden" name="date" value="{{ tableDates.0 }}">
+                    {% if row.montag != new %}
+                        <input type="hidden" name="hasSubject" value="{{ row.montag }}">
+                    {% endif %}
                     <td>
                         <button>{{ row.montag }}</button>
                     </td>
                 </form>
                 <form method="POST" action="kalender/newLesson">
                     {% csrf_token %}
-                    <input type="hidden" name="hours" value="{{ row.stundenstripped}}">
+                    <input type="hidden" name="hours" value="{{ row.stundenstripped }}">
                     <input type="hidden" name="date" value="{{ tableDates.1 }}">
+                    {% if row.dienstag != new %}
+                        <input type="hidden" name="hasSubject" value="{{ row.dienstag }}">
+                    {% endif %}
                     <td>
                         <button>{{ row.dienstag }}</button>
                     </td>
                 </form>
                 <form method="POST" action="kalender/newLesson">
                     {% csrf_token %}
-                    <input type="hidden" name="hours" value="{{ row.stundenstripped}}">
+                    <input type="hidden" name="hours" value="{{ row.stundenstripped }}">
                     <input type="hidden" name="date" value="{{ tableDates.2 }}">
+                    {% if row.mittwoch != new %}
+                        <input type="hidden" name="hasSubject" value="{{ row.mittwoch }}">
+                    {% endif %}
                     <td>
                         <button>{{ row.mittwoch }}</button>
                     </td>
                 </form>
                 <form method="POST" action="kalender/newLesson">
                     {% csrf_token %}
-                    <input type="hidden" name="hours" value="{{ row.stundenstripped}}">
+                    <input type="hidden" name="hours" value="{{ row.stundenstripped }}">
                     <input type="hidden" name="date" value="{{ tableDates.3 }}">
+                    {% if row.donnerstag != new %}
+                        <input type="hidden" name="hasSubject" value="{{ row.donnerstag }}">
+                    {% endif %}
                     <td>
                         <button>{{ row.donnerstag }}</button>
                     </td>
                 </form>
                 <form method="POST" action="kalender/newLesson">
                     {% csrf_token %}
-                    <input type="hidden" name="hours" value="{{ row.stundenstripped}}">
+                    <input type="hidden" name="hours" value="{{ row.stundenstripped }}">
                     <input type="hidden" name="date" value="{{ tableDates.4 }}">
+                    {% if row.freitag != new %}
+                        <input type="hidden" name="hasSubject" value="{{ row.freitag }}">
+                    {% endif %}
                     <td>
                         <button>{{ row.freitag }}</button>
                     </td>
