@@ -9,3 +9,5 @@ hours = ["1.-2. 07:45-09:15",
 headings = ["stunden", "montag", "dienstag", "mittwoch", "donnerstag", "freitag"]
 
 dayHeadings = ["Stunde", "Fach", "Stundeninhalt", "Notiz"]
+
+searchHeadings = ["Datum", "Fach", "Stundeninhalt", "Notiz"]

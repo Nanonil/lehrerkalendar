@@ -32,3 +32,18 @@ class dayTabele(tables.Table):
 
     class Meta:
         orderable = False
+
+    
+    
+class searchTable(tables.Table):
+    TEMPLATE = """
+        <input id="count" maxlength="100" name="count" value="" onfocusout="myFunction()" type="text"/>
+        """
+
+    Datum = tables.Column(linkify=("tages_view", [tables.A("Datum")]))
+    Fach = tables.Column()
+    Stundeninhalt = tables.TemplateColumn(TEMPLATE)
+    Notiz = tables.TemplateColumn(TEMPLATE)
+
+    class Meta:
+        orderable = False

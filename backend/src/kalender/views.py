@@ -4,9 +4,9 @@ from datetime import date as dateTime
 from datetime import timedelta
 import datetime
 
-from .tables import kalenderTable, dayTabele
-from .constants import hours, headings, dayHeadings
-from .forms import DatepickerForm
+from .tables import kalenderTable, dayTabele, searchTable
+from .constants import hours, headings, dayHeadings, searchHeadings
+from .forms import DatepickerForm, ClassForm
 from .models import *
 
 
@@ -277,11 +277,13 @@ def assure_that_user_is_in_custom_db(user):
 
 
 def stunden_view(request, *args, **kwargs):
+    hourID = kwargs['hour']
+    lesson = Lesson.objects.get(id=hourID)
     context = {
-        "fach": "ANW",
-        "klasse": "FIA85",
-        "inhalt": "moin",
-        "notiz": "jo"
+        "fach": lesson.Subject,
+        "klasse": lesson.ClassID.ClassName,
+        "inhalt": lesson.Content,
+        "notiz": lesson.Note
     }
 
     return render(request, "html/hour.html", context)
@@ -322,8 +324,28 @@ def tages_view(request, *args, **kwargs):
 
     for row in data:
         list.append(row)
-    table = dayTabele(list)
+    table = dayTabele(data)
     return render(request, "html/day.html", {'table': table})
+
+def search_view(request, *args, **kwargs):
+    form = ClassForm()
+
+    context = {
+        "form": form,
+        "table" : searchTable([])
+    }
+
+    if request.GET: 
+        classId = request.GET['Klasse']
+        lessons = Lesson.objects.filter(ClassID=classId).order_by('-DayID__DateOfDay')
+        data = []
+        for lesson in lessons:
+            data.append({searchHeadings[0]: Day.objects.get(id=lesson.DayID.id).DateOfDay, searchHeadings[1]: lesson.Subject, searchHeadings[2]: lesson.Content, searchHeadings[3]: lesson.Note})
+        table = searchTable(data)
+        context['table'] = table
+
+    return render(request, 'html/search.html', context)
+
 
 
 def get_week_days(today):
