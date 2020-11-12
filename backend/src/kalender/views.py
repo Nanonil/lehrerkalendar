@@ -274,6 +274,7 @@ def assure_that_user_is_in_custom_db(user):
             if teacher == user.get_username():
                 return
             teacher = Teacher(TeacherName=user.get_username())
+            teacher.save()
 
 
 def stunden_view(request, *args, **kwargs):
