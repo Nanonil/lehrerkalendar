@@ -169,11 +169,13 @@ def assure_that_user_is_in_custom_db(user):
 
 
 def stunden_view(request, *args, **kwargs):
+    hourID = kwargs['hour']
+    lesson = Lesson.objects.get(id=hourID)
     context = {
-        "fach": "ANW",
-        "klasse": "FIA85",
-        "inhalt": "moin",
-        "notiz": "jo"
+        "fach": lesson.Subject,
+        "klasse": lesson.ClassID.ClassName,
+        "inhalt": lesson.Content,
+        "notiz": lesson.Note
     }
 
     return render(request, "html/hour.html", context)

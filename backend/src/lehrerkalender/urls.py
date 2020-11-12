@@ -36,9 +36,9 @@ urlpatterns = [
 
     #From Branch Tara
     path('schueler/', schueler_view),
-    path('kalender/tag/<str:tag>', tages_view),
+    path('kalender/tag/<str:tag>', tages_view, name="tages_view"),
     path('test/<str:tag>', test_view, name='test_view'),
-    path('kalender/tag/<str:tag>/stunde/<str:hour>', stunden_view),
+    path('kalender/stunde/<str:hour>', stunden_view),
     path('saveInhalt/', test_view),
     path('saveStudents/', save_students_view),
 

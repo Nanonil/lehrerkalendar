@@ -38,7 +38,7 @@ class searchTable(tables.Table):
         <input id="count" maxlength="100" name="count" value="" onfocusout="myFunction()" type="text"/>
         """
 
-    Datum = tables.Column(linkify=("dummy_view", [tables.A("Datum")]))
+    Datum = tables.Column(linkify=("tages_view", [tables.A("Datum")]))
     Fach = tables.Column()
     Stundeninhalt = tables.TemplateColumn(TEMPLATE)
     Notiz = tables.TemplateColumn(TEMPLATE)
