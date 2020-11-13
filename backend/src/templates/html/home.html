@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
+.content{
+max-width: 750px;
+margin: auto;
+}
+
+</style>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body class="content">
 {% block content %}
-    <h1>Wilkommen beim Lehrerkalender {{ request.user }}</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <h1 style="color: #6699ff; text-shadow: 2px 2px 5px #ccffff;">Wilkommen beim Lehrerkalender {{ request.user }}</h1>
     <div>
-        <form action="/kalender" method="GET">
-            <input type="submit" value="Kalender">
+        <form action="/kalender" method="GET" style="float: left;">
+            <input type="submit" value="Kalender" style="width: 200px; height: 100px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 30px; color: #555555; background-color: #99ccff; box-shadow: 2px 2px 5px #9999ff;">
         </form>
-        <form action="/schueler" method="GET">
-            <input type="submit" value="Schueler">
+        <form action="/schueler" method="GET" style="float: left; margin-left: 40px;">
+            <input type="submit" value="Schueler" style="width: 200px; height: 100px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 30px;color: #555555; background-color: #99ccff; box-shadow: 2px 2px 5px #9999ff;">
         </form>
     </div>
 {% endblock %}

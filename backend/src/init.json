@@ -24,7 +24,7 @@
         "model": "kalender.period",
         "pk": 2,
         "fields": {
-            "timeSpan": "9:35-11:05"
+            "timeSpan": "09:35-11:05"
         }
     },
     {
