@@ -248,16 +248,14 @@ def tages_view(request, *args, **kwargs):
     for lesson in allLessons:
         if lesson.DayID.id == currentDayId:
             allLessonsAtDate.append(lesson)
-    if allLessonsAtDate.__len__() != 0:
-        for hour in hours:
-            for lesson in allLessonsAtDate:
-                if lesson.PeriodID.id == Period.objects.filter(timeSpan=hour.split(" ")[1])[0].id:
-                    thisLesson = lesson
-            aRow = {dayHeadings[0]: hour.split(" ")[0], dayHeadings[1]: thisLesson.Subject,
-                    dayHeadings[2]: thisLesson.Content, dayHeadings[3]: thisLesson.Note}
-            list.append(aRow)
-    else:
-        pass
+
+    for hour in hours:
+        for lesson in allLessonsAtDate:
+            if lesson.PeriodID.id == Period.objects.filter(timeSpan=hour.split(" ")[1])[0].id:
+                thisLesson = lesson
+        aRow = {dayHeadings[0]: hour.split(" ")[0], dayHeadings[1]: thisLesson.Subject,
+                dayHeadings[2]: thisLesson.Content, dayHeadings[3]: thisLesson.Note}
+        list.append(aRow)
     table = dayTabele(list)
     return render(request, "html/day.html", {'table': table})
 
