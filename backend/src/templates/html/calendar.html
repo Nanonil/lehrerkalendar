@@ -9,16 +9,13 @@
             <button>submit</button>
         </form>
         <p>Wählen sie eine Klasse aus und bestätigen sie die Auswahl, es wird dann eine Liste aller Klassen angezeigt</p>
-        <form action="/test">
-            <select name="classes" id="classes">
-                {% for class in classes %}
-                    <option value={{ class }}>{{ class }}</option>
-                {% endfor %}
-            </select>
+        <form action="/kalender/search/">
+            {% csrf_token %}
             <input type="submit" value="search">
         </form>
         <p>Wählen sie ein Datum aus und bestätigen sie, </p>
         <form action="/kalender/day">
+            {% csrf_token %}
             <label>
                 Enter your birthday:
                 <input type="date" name="date">
