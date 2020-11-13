@@ -20,15 +20,10 @@ class kalenderTable(tables.Table):
         pass
 
 class dayTabele(tables.Table):
-    TEMPLATE = """
-        <input id="count" maxlength="100" name="count" value="" onfocusout="myFunction()" type="text"/>
-        """
-
-    day = "Montag"
     Stunde = tables.Column()
     Fach = tables.Column()
-    Stundeninhalt = tables.TemplateColumn(TEMPLATE)
-    Notiz = tables.TemplateColumn(TEMPLATE)
+    Stundeninhalt = tables.Column()
+    Notiz = tables.Column()
 
     class Meta:
         orderable = False
@@ -36,14 +31,10 @@ class dayTabele(tables.Table):
     
     
 class searchTable(tables.Table):
-    TEMPLATE = """
-        
-        """
-
     Datum = tables.Column()
     Fach = tables.Column()
-    Stundeninhalt = tables.TemplateColumn(TEMPLATE)
-    Notiz = tables.TemplateColumn(TEMPLATE)
+    Stundeninhalt = tables.Column()
+    Notiz = tables.Column()
 
     class Meta:
         orderable = False
