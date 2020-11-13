@@ -50,7 +50,7 @@ def kalender_view(request):
         thisSchedule = Schedule(TeacherID=teacher, CalendarWeek=calendarWeek, Year=year, Monday=montag,
                                 Tuesday=dienstag, Wednesday=mittwoch, Thursday=donnerstag, Friday=freitag)
         thisSchedule.save()
-        scheudle=thisSchedule
+        scheudle = thisSchedule
 
     monday = Lesson.objects.filter(DayID=scheudle[0].Monday.id)
     tuesday = Lesson.objects.filter(DayID=scheudle[0].Tuesday.id)
@@ -166,7 +166,9 @@ def neue_stunde_view(request):
         }
         return render(request, "html/createLesson.html", context)
     else:
-        return redirect("/kalender/stunde/" + str(Period.objects.filter(timeSpan=hours)[0].id))
+        return redirect("/kalender/stunde/" + str(Lesson.objects.filter(DayID=Day.objects.filter(DateOfDay=date)[0],
+                                                                        PeriodID=Period.objects.filter(timeSpan=hours)[
+                                                                            0])[0].id))
 
 
 def neue_stunde_save(request):
@@ -212,14 +214,30 @@ def assure_that_user_is_in_custom_db(user):
 def stunden_view(request, *args, **kwargs):
     hourID = kwargs['hour']
     lesson = Lesson.objects.get(id=hourID)
+
     context = {
         "fach": lesson.Subject,
         "klasse": lesson.ClassID.ClassName,
         "inhalt": lesson.Content,
-        "notiz": lesson.Note
+        "notiz": lesson.Note,
+        "lessonID": lesson.id
     }
 
     return render(request, "html/hour.html", context)
+
+
+def stunde_speichern(request):
+    lessonID = request.POST["lessonID"]
+    inhalt = request.POST["unterrichtsinhalt"]
+    notitz = request.POST["notitzen"]
+    lesson = Lesson.objects.filter(id=lessonID)[0]
+
+    lesson.Content = inhalt
+    lesson.Note = notitz
+
+    lesson.save()
+    # send redirect with lesson id
+    return redirect('/kalender/stunde/' + str(lessonID))
 
 
 def tages_view(request, *args, **kwargs):
@@ -238,7 +256,6 @@ def tages_view(request, *args, **kwargs):
         aRow = {dayHeadings[0]: hour.split(" ")[0], dayHeadings[1]: thisLesson.Subject,
                 dayHeadings[2]: thisLesson.Content, dayHeadings[3]: thisLesson.Note}
         list.append(aRow)
-
     table = dayTabele(list)
     return render(request, "html/day.html", {'table': table})
 
