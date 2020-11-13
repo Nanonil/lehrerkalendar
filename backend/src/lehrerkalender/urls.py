@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from kalender.views import save_students_view, stunden_view, test_view, kalender_view, login_view, home_view, login_redirect_view, dummy_view, schueler_view, tages_view, search_view, neue_stunde_view
+from kalender.views import save_students_view, stunden_view, test_view, kalender_view, login_view, home_view, login_redirect_view, dummy_view, schueler_view, tages_view, search_view, neue_stunde_view, neue_stunde_save
 urlpatterns = [
 
     #Login and login redirect path
@@ -32,6 +32,7 @@ urlpatterns = [
     #Path for all views reachable from the Kalendar
     path('kalender/new/tag/<str:hours>/date/<str:date>', neue_stunde_view, name='neue_stunde' ),
     path('kalender/newLesson', neue_stunde_view, name='neue_stunde'),
+    path('kalender/newLesson/save', neue_stunde_save, name='neue_stunde_save'),
     #Admin views
     path('admin/', admin.site.urls),
 
@@ -39,7 +40,7 @@ urlpatterns = [
 
     #From Branch Tara
     path('schueler/', schueler_view),
-    path('kalender/tag/<str:stunden>', tages_view, name='tag'),
+    path('kalender/day', tages_view, name='tag'),
     path('test/<str:tag>', test_view, name='test_view'),
     path('kalender/stunde/<str:hour>', stunden_view),
     path('saveInhalt/', test_view),
