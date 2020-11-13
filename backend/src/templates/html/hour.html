@@ -8,21 +8,22 @@
     </br>
     </br>
 
-    <label style="font-size: 25px; color: #336699;">Unterrichtsinhalt:</label> </br>
-    <textarea style="font-size: 18px; font-family: Cambria" name="unterrichtsinhalt" rows="10"
-              cols="70">{{ inhalt }}</textarea>
-    </br></br>
+    <form action="/kalender/stunde/save" method="POST">
+        {% csrf_token %}
+        <label style="font-size: 25px; color: #336699;">Unterrichtsinhalt:</label> </br>
+        <textarea style="font-size: 18px; font-family: Cambria" name="unterrichtsinhalt" rows="10"
+                  cols="70">{{ inhalt }}</textarea>
+        </br></br>
 
 
-    <label style="font-size: 25px; color: #336699;">Notiz:</label> </br>
-    <textarea style="font-size: 18px; font-family: Cambria" name="unterrichtsinhalt" rows="10"
-              cols="70">{{ notiz }}</textarea>
+        <label style="font-size: 25px; color: #336699;">Notiz:</label> </br>
+        <textarea style="font-size: 18px; font-family: Cambria" name="notitzen" rows="10"
+                  cols="70">{{ notiz }}</textarea>
 
-    </br>
-    </br>
-    <!-- <button style="height: 50px; width: 100px; font-size: 18px; background-color: #006699; color: white; box-shadow: 2px 2px 5px #010435;" onclick="myFunction()">Speichern</button> -->
-    <form action="/saveInhalt" method="GET">
-        <input style="height: 50px; width: 100px; font-size: 18px; background-color: #006699; color: white; box-shadow: 2px 2px 5px #010435;"
-               type="submit" value="Speichern">
+        </br>
+        </br>
+        <!-- <button style="height: 50px; width: 100px; font-size: 18px; background-color: #006699; color: white; box-shadow: 2px 2px 5px #010435;" onclick="myFunction()">Speichern</button> -->
+        <input type="hidden" value="{{ lessonID }}" name="lessonID">
+        <input type="submit" value="Speichern">
     </form>
 {% endblock %}
