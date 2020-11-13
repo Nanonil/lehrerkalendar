@@ -68,45 +68,50 @@ def kalender_view(request):
         aHour.update({"stunden": hour.split(" ")[0]})
         aHour.update({"stundenstripped": hour.split(" ")[0].replace(".", "")})
 
-        try:
-            if monday[counter].PeriodID.timeSpan == hour.split(" ")[1]:
-                aHour.update({"montag": monday[counter].Subject})
-            else:
+        isAdded = False
+        for everyDay in monday:
+            if everyDay.PeriodID.timeSpan == hour.split(" ")[1]:
+                aHour.update({"montag": everyDay.Subject})
+                isAdded = True
+
+            if not isAdded:
                 aHour.update({"montag": "neu"})
-        except:
-            aHour.update({"montag": "neu"})
 
-        try:
-            if tuesday[counter].PeriodID.timeSpan == hour.split(" ")[1]:
-                aHour.update({"dienstag": tuesday[counter].Subject})
-            else:
+        isAdded = False
+        for everyDay in tuesday:
+            if everyDay.PeriodID.timeSpan == hour.split(" ")[1]:
+                aHour.update({"dienstag": everyDay.Subject})
+                isAdded = True
+
+            if not isAdded:
                 aHour.update({"dienstag": "neu"})
-        except:
-            aHour.update({"dienstag": "neu"})
 
-        try:
-            if wednesday[counter].PeriodID.timeSpan == hour.split(" ")[1]:
-                aHour.update({"mittwoch": wednesday[counter].Subject})
-            else:
+        isAdded = False
+        for everyDay in wednesday:
+            if everyDay.PeriodID.timeSpan == hour.split(" ")[1]:
+                aHour.update({"mittwoch": everyDay.Subject})
+                isAdded = True
+            if not isAdded:
                 aHour.update({"mittwoch": "neu"})
-        except:
-            aHour.update({"mittwoch": "neu"})
 
-        try:
-            if thursday[counter].PeriodID.timeSpan == hour.split(" ")[1]:
-                aHour.update({"donnerstag": thursday[counter].Subject})
-            else:
+        isAdded = False
+        for everyDay in thursday:
+            if everyDay.PeriodID.timeSpan == hour.split(" ")[1]:
+                aHour.update({"donnerstag": everyDay.Subject})
+                isAdded = True
+            if not isAdded:
                 aHour.update({"donnerstag": "neu"})
-        except:
-            aHour.update({"donnerstag": "neu"})
 
-        try:
-            if friday[counter].PeriodID.timeSpan == hour.split(" ")[1]:
-                aHour.update({"freitag": friday[counter].Subject})
-            else:
+        isAdded = False
+        for everyDay in friday:
+            if everyDay.PeriodID.timeSpan == hour.split(" ")[1]:
+                aHour.update({"freitag": everyDay.Subject})
+                isAdded = True
+            if not isAdded:
                 aHour.update({"freitag": "neu"})
-        except:
-            aHour.update({"freitag": "neu"})
+
+
+
         counter += 1
         table.append(aHour)
     tableHead = {"stunden": headings[0], "montag": headings[1], "dienstag": headings[2], "mittwoch": headings[3],
