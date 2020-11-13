@@ -217,6 +217,8 @@ def neue_stunde_save(request):
     neueStunde = Lesson(DayID=dayID, ClassID=classID, Subject=subject, PeriodID=periodID, Content=content, Note=note)
     neueStunde.save()
 
+
+
     return redirect("/kalender/stunde/" + str(neueStunde.id))
 
 

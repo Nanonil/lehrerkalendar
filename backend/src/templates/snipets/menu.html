@@ -1,9 +1,9 @@
 <div class="topnav">
     {% if "schueler" in request.path %}
-    <a class="active" href="#student">Schülerbewertung</a>
-    <a href="#calender">Kalender</a>
+        <a class="active" href="/schueler">Schülerbewertung</a>
+        <a href="/kalender">Kalender</a>
     {% elif "kalender" in request.path %}
-    <a href="#student">Schülerbewertung</a>
-    <a class="active" href="#Kalender">Kalender</a>
+        <a href="/schueler">Schülerbewertung</a>
+        <a class="active" href="/kalender">Kalender</a>
     {% endif %}
-  </div>
+</div>

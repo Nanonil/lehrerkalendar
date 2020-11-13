@@ -2,7 +2,7 @@
 {% block content %}
     <h1 style="color: #cc6666; margin-left: 20px;">Eine neue Stunde anlegen</h1>
     <p style="margin-left: 20px;">Sie erstellen eine neue Stunde am: {{ date }} zur Uhrzeit: {{ hour }}</p>
-    <form method="POST" action="newLesson/save;" style="margin-left: 20px;">
+    <form method="POST" action="newLesson/save" style="margin-left: 20px;">
         {% csrf_token %}
         <select name="klassen" style="color :#ff9900;">
             {% for klasse in klassenList %}
