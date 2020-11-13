@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Eine neue Stunde anlegen</h1>
+    <p>Sie erstellen eine neue Stunde am: {{ date }} zur Uhrzeit: {{ hour }}</p>
+    <form method="POST" action="newLesson/save">
+        {% csrf_token %}
+        <select name="klassen">
+            {% for klasse in klassenList %}
+                <option value="{{ klasse }}">{{ klasse }}</option>
+            {% endfor %}
+        </select>
+        <input type="text" name="fach" placeholder="Fach">
+        <input type="hidden" value="{{ date }}" name="date">
+        <input type="hidden" value="{{ hour }}" name="hour">
+        <button>submit</button>
+    </form>
+{% endblock %}
