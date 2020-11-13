@@ -48,7 +48,7 @@ urlpatterns = [
 
     #Search View to search by class
     path('kalender/search/', search_view),
-    path('kalender/search/?Klasse=1', dummy_view),
+    #path('kalender/search/?Klasse=1', dummy_view),
 
     #This is just a dummy view assigned wherever a view is not ready/implemented yet
     path('dummy_view', dummy_view, name='dummy_view'),

@@ -22,12 +22,35 @@ def kalender_view(request):
 
     try:
         defaultDate = dateTime.fromisoformat(request.POST["weekDate"])
+
     except:
         defaultDate = dateTime.today()
 
     # get all data for the table
     calendarWeek = datetime.date(defaultDate.year, defaultDate.month, defaultDate.day).isocalendar()[1]
     scheudle = Schedule.objects.filter(TeacherID=currentTeacher[0].id, CalendarWeek=calendarWeek, Year=defaultDate.year)
+
+    # Assure that the schedual exists, if not create a new one
+    if scheudle.__len__() == 0:
+        teacher = currentTeacher[0]
+        calendarWeek = defaultDate.isocalendar()[1]
+        year = defaultDate.year
+        # Create new Days
+        thisWeek = get_week_days(defaultDate)
+        montag = Day(DateOfDay=thisWeek[0], Weekday=1)
+        montag.save()
+        dienstag = Day(DateOfDay=thisWeek[1], Weekday=2)
+        dienstag.save()
+        mittwoch = Day(DateOfDay=thisWeek[2], Weekday=3)
+        mittwoch.save()
+        donnerstag = Day(DateOfDay=thisWeek[3], Weekday=4)
+        donnerstag.save()
+        freitag = Day(DateOfDay=thisWeek[4], Weekday=5)
+        freitag.save()
+        thisSchedule = Schedule(TeacherID=teacher, CalendarWeek=calendarWeek, Year=year, Monday=montag,
+                                Tuesday=dienstag, Wednesday=mittwoch, Thursday=donnerstag, Friday=freitag)
+        thisSchedule.save()
+        scheudle=thisSchedule
 
     monday = Lesson.objects.filter(DayID=scheudle[0].Monday.id)
     tuesday = Lesson.objects.filter(DayID=scheudle[0].Tuesday.id)
@@ -208,8 +231,6 @@ def tages_view(request, *args, **kwargs):
         if lesson.DayID.id == currentDayId:
             allLessonsAtDate.append(lesson)
 
-
-
     for hour in hours:
         for lesson in allLessonsAtDate:
             if lesson.PeriodID.id == Period.objects.filter(timeSpan=hour.split(" ")[1])[0].id:
@@ -256,15 +277,19 @@ def search_view(request, *args, **kwargs):
     }
 
     if request.GET:
-        classId = request.GET['Klasse']
-        lessons = Lesson.objects.filter(ClassID=classId).order_by('-DayID__DateOfDay')
-        data = []
-        for lesson in lessons:
-            data.append(
-                {searchHeadings[0]: Day.objects.get(id=lesson.DayID.id).DateOfDay, searchHeadings[1]: lesson.Subject,
-                 searchHeadings[2]: lesson.Content, searchHeadings[3]: lesson.Note})
-        table = searchTable(data)
-        context['table'] = table
+        try:
+            classId = request.GET['Klasse']
+            lessons = Lesson.objects.filter(ClassID=classId).order_by('-DayID__DateOfDay')
+            data = []
+            for lesson in lessons:
+                data.append(
+                    {searchHeadings[0]: Day.objects.get(id=lesson.DayID.id).DateOfDay,
+                     searchHeadings[1]: lesson.Subject,
+                     searchHeadings[2]: lesson.Content, searchHeadings[3]: lesson.Note})
+            table = searchTable(data)
+            context['table'] = table
+        except:
+            pass
 
     return render(request, 'html/search.html', context)
 
