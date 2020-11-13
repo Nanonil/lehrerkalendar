@@ -1,4 +1,5 @@
 from django import forms
+from django.db.utils import OperationalError
 from bootstrap_datepicker_plus import DatePickerInput
 from datetime import date as dateTime
 from .models import *
@@ -13,12 +14,15 @@ class DatepickerForm(forms.Form):
     )
 
 class ClassForm(forms.Form):
-    classes = Schoolclass.objects.all()
-    
-    CHOICES = []
-    i = 1
-    for sc in classes:
-        CHOICES.append((i, sc.ClassName))
-        i += 1
+    try:
+        classes = Schoolclass.objects.all()
+        
+        CHOICES = []
+        i = 1
+        for sc in classes:
+            CHOICES.append((i, sc.ClassName))
+            i += 1
 
-    Klasse = forms.ChoiceField(choices=CHOICES) #initial=classId
+        Klasse = forms.ChoiceField(choices=CHOICES) #initial=classId
+    except OperationalError:
+        pass
