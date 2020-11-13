@@ -232,11 +232,16 @@ def tages_view(request, *args, **kwargs):
             allLessonsAtDate.append(lesson)
 
     for hour in hours:
+        thisLesson = {}
         for lesson in allLessonsAtDate:
             if lesson.PeriodID.id == Period.objects.filter(timeSpan=hour.split(" ")[1])[0].id:
                 thisLesson = lesson
-        aRow = {dayHeadings[0]: hour.split(" ")[0], dayHeadings[1]: thisLesson.Subject,
+        if bool(thisLesson):
+            aRow = {dayHeadings[0]: hour.split(" ")[0], dayHeadings[1]: thisLesson.Subject,
                 dayHeadings[2]: thisLesson.Content, dayHeadings[3]: thisLesson.Note}
+        else:
+            aRow = {dayHeadings[0]: hour.split(" ")[0], dayHeadings[1]: "—",
+                dayHeadings[2]: "—", dayHeadings[3]: "—"}
         list.append(aRow)
 
     table = dayTabele(list)
