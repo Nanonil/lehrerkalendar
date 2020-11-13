@@ -13,16 +13,17 @@ class DatepickerForm(forms.Form):
         widget=DatePickerInput(format='%d/%m/%Y', attrs={'value': defaultDate})
     )
 
+
 class ClassForm(forms.Form):
     try:
         classes = Schoolclass.objects.all()
-        
+
         CHOICES = []
         i = 1
         for sc in classes:
             CHOICES.append((i, sc.ClassName))
             i += 1
 
-        Klasse = forms.ChoiceField(choices=CHOICES) #initial=classId
+        Klasse = forms.ChoiceField(choices=CHOICES)  # initial=classId
     except OperationalError:
         pass

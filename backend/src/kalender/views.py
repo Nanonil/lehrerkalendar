@@ -51,12 +51,13 @@ def kalender_view(request):
                                 Tuesday=dienstag, Wednesday=mittwoch, Thursday=donnerstag, Friday=freitag)
         thisSchedule.save()
         scheudle = thisSchedule
-
-    monday = Lesson.objects.filter(DayID=scheudle[0].Monday.id)
-    tuesday = Lesson.objects.filter(DayID=scheudle[0].Tuesday.id)
-    wednesday = Lesson.objects.filter(DayID=scheudle[0].Wednesday.id)
-    thursday = Lesson.objects.filter(DayID=scheudle[0].Thursday.id)
-    friday = Lesson.objects.filter(DayID=scheudle[0].Friday.id)
+    else:
+        scheudle = scheudle[0]
+    monday = Lesson.objects.filter(DayID=scheudle.Monday.id)
+    tuesday = Lesson.objects.filter(DayID=scheudle.Tuesday.id)
+    wednesday = Lesson.objects.filter(DayID=scheudle.Wednesday.id)
+    thursday = Lesson.objects.filter(DayID=scheudle.Thursday.id)
+    friday = Lesson.objects.filter(DayID=scheudle.Friday.id)
     # create the Table
     table = []
     counter = 0
@@ -68,27 +69,42 @@ def kalender_view(request):
         aHour.update({"stundenstripped": hour.split(" ")[0].replace(".", "")})
 
         try:
-            aHour.update({"montag": monday[counter].Subject})
+            if monday[counter].PeriodID.timeSpan == hour.split(" ")[1]:
+                aHour.update({"montag": monday[counter].Subject})
+            else:
+                aHour.update({"montag": "neu"})
         except:
             aHour.update({"montag": "neu"})
 
         try:
-            aHour.update({"dienstag": tuesday[counter].Subject})
+            if tuesday[counter].PeriodID.timeSpan == hour.split(" ")[1]:
+                aHour.update({"dienstag": tuesday[counter].Subject})
+            else:
+                aHour.update({"dienstag": "neu"})
         except:
             aHour.update({"dienstag": "neu"})
 
         try:
-            aHour.update({"mittwoch": wednesday[counter].Subject})
+            if wednesday[counter].PeriodID.timeSpan == hour.split(" ")[1]:
+                aHour.update({"mittwoch": wednesday[counter].Subject})
+            else:
+                aHour.update({"mittwoch": "neu"})
         except:
             aHour.update({"mittwoch": "neu"})
 
         try:
-            aHour.update({"donnerstag": thursday[counter].Subject})
+            if thursday[counter].PeriodID.timeSpan == hour.split(" ")[1]:
+                aHour.update({"donnerstag": thursday[counter].Subject})
+            else:
+                aHour.update({"donnerstag": "neu"})
         except:
             aHour.update({"donnerstag": "neu"})
 
         try:
-            aHour.update({"freitag": friday[counter].Subject})
+            if friday[counter].PeriodID.timeSpan == hour.split(" ")[1]:
+                aHour.update({"freitag": friday[counter].Subject})
+            else:
+                aHour.update({"freitag": "neu"})
         except:
             aHour.update({"freitag": "neu"})
         counter += 1
